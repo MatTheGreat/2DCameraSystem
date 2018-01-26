@@ -69,7 +69,7 @@ int main()
 						m_camera.ZoomCamera(0.5);
 						break;
 					case SDLK_e:
-						m_camera.ZoomCamera(3);
+						m_camera.ZoomCamera(2);
 						break;
 					case SDLK_f:
 						m_camera.ZoomToFit();
