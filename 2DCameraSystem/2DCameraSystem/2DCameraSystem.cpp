@@ -10,7 +10,7 @@ CameraSystem::CameraSystem()
 	m_camera->h = 900;
 
 	//Set Default Zoom Level
-	m_zooming = true;
+	m_zooming = false;
 	m_zoom = 1;
 
 	//Set World Size
@@ -33,7 +33,7 @@ CameraSystem::CameraSystem(float viewportSizeX, float viewportSizeY, float world
 	m_camera->h = viewportSizeY;
 
 	//Set Default Zoom Level
-	m_zooming = true;
+	m_zooming = false;
 	m_zoom = 1;
 
 	//Set World Size

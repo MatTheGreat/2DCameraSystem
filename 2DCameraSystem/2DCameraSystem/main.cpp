@@ -36,36 +36,50 @@ int main()
 
 	bool running = true;
 	SDL_Event e;
+	bool keyUp = true;
+	
 	while (running == true)
 	{
 		testObject2->rect.x++;
 		//Handle events on queue
 		while (SDL_PollEvent(&e))
 		{
-			switch (e.key.keysym.sym)
+			switch (e.type)
 			{
-			case SDLK_LEFT:
-				m_camera.PanCamera(-panX, 0);
-				break;
-			case SDLK_RIGHT:
-				m_camera.PanCamera(panX, 0);
-				break;
-			case SDLK_UP:
-				m_camera.PanCamera(0, -panY);
-				break;
-			case SDLK_DOWN:
-				m_camera.PanCamera(0, panY);
-				break;
-			case SDLK_b:
-				m_camera.SetObjectToBeTracked(3);
-				m_camera.m_trackingObject = true;
-				break;
-			default:
-				break;
+				case SDL_KEYDOWN:
+					switch (e.key.keysym.sym)
+					{
+					case SDLK_LEFT:
+						m_camera.PanCamera(-panX, 0);
+						break;
+					case SDLK_RIGHT:
+						m_camera.PanCamera(panX, 0);
+						break;
+					case SDLK_UP:
+						m_camera.PanCamera(0, -panY);
+						break;
+					case SDLK_DOWN:
+						m_camera.PanCamera(0, panY);
+						break;
+					case SDLK_t:
+						m_camera.SetObjectToBeTracked(3);
+						m_camera.m_trackingObject = true;
+						break;
+					case SDLK_q:
+						m_camera.ZoomCamera(0.5);
+						break;
+					case SDLK_e:
+						m_camera.ZoomCamera(3);
+						break;
+					case SDLK_f:
+						m_camera.ZoomToFit();
+						break;
+					default:
+						break;
+					}
 			}
+			
 		}
-
-
 
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
 		SDL_RenderClear(renderer);
