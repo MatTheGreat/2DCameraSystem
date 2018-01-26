@@ -21,8 +21,7 @@ int main()
 	
 	RenderObject * testObject2 = new RenderObject(800, 800, "Resources/Test.png", renderer);
 
-	CameraSystem m_camera = CameraSystem();
-	m_camera.renderer = renderer;
+	CameraSystem m_camera = CameraSystem(1600, 900, 3200, 1800, renderer);
 
 	m_camera.AddRenderObject(Background);
 	m_camera.AddRenderObject(Background2);
@@ -59,7 +58,7 @@ int main()
 				break;
 			case SDLK_b:
 				m_camera.SetObjectToBeTracked(3);
-				m_camera.trackingObject = true;
+				m_camera.m_trackingObject = true;
 				break;
 			default:
 				break;
